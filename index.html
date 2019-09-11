@@ -1,0 +1,58 @@
+<html>
+<head>
+  <!--
+  Self Portrait with media elements
+  Created by Chunhan Chen
+  Sep 8 2019
+
+  Music ref: https://www.youtube.com/watch?v=z4zNXiPI1Z4
+  Img ref: https://www.google.com/imgres?imgurl=https%3A%2F%2Fgiffiles.alphacoders.com%2F524%2F52425.gif&imgrefurl=https%3A%2F%2Fgifs.alphacoders.com%2Fgifs%2Fview%2F52425&docid=bgxVh5tPO9KaFM&tbnid=dcMm-sG-5nJ19M%3A&vet=10ahUKEwjC2N_s28LkAhWnd98KHcE1ChkQMwi7ASg0MDQ..i&w=500&h=253&bih=597&biw=1280&q=watercolor%20gif&ved=0ahUKEwjC2N_s28LkAhWnd98KHcE1ChkQMwi7ASg0MDQ&iact=mrc&uact=8
+            https://www.google.com/imgres?imgurl=https%3A%2F%2Fdata.whicdn.com%2Fimages%2F246438107%2Foriginal.gif&imgrefurl=https%3A%2F%2Fweheartit.com%2Fentry%2F246438107&docid=RS76LlV4zDInSM&tbnid=wTUFWp-bJRJ_5M%3A&vet=10ahUKEwjC2N_s28LkAhWnd98KHcE1ChkQMwjQAShJMEk..i&w=460&h=259&bih=597&biw=1280&q=watercolor%20gif&ved=0ahUKEwjC2N_s28LkAhWnd98KHcE1ChkQMwjQAShJMEk&iact=mrc&uact=8
+  -->
+  <script type = "text/javascript">
+  let frameImg;
+  let audioFile;
+  let waterColor;
+  window.addEventListener('load', init);
+  function init() {
+    frameImg = document.getElementById("portrait-frame");
+    waterColor = document.getElementsByClassName("waterColor");
+    audioFile = document.getElementById("rainy-jazz");
+    frameImg.addEventListener("click", togglePlay);
+    for (item of waterColor) {
+      item.style.visibility = "hidden";
+      item.style.transitionDelay = "0s 1s ease 1s";
+    }
+  };
+
+  function togglePlay() {
+    if (audioFile.paused){
+      audioFile.play();
+      for (item of waterColor) {
+        item.style.visibility = "visible";
+      }
+    } else {
+      audioFile.pause();
+      for (item of waterColor) {
+        item.style.visibility = "hidden";
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div style="position: relative;" align="center" width = window.innerWidth height = window.innerHeight >
+
+    <div style="position: absolute; width:15%; height: 15%; left: 32%; opacity: 0.4" align="center">
+        <img src="watercolor.gif" class = "waterColor" style = "transform:rotate(315deg); width: 100%; position: absolute; left: 60%; top: 20%; " alt = "water color" />
+        <img src="watercolor.gif" class = "waterColor" style = "transform:rotate(135deg); width: 100%; position: absolute; left:40%; top: -20%" alt = "water color" />
+    </div>
+    <div style="position: absolute; width:50%; height: 15%; left: 13%; top: 110%; opacity: 0.4" align="center">
+          <img src="water-color-2.gif" class = "waterColor" style = "transform:rotate(0deg); width: 100%; position: absolute; left:40%; top: -20%" alt = "water color" />
+    </div>
+    <img src="self-portrait-frame.png" width = 20%; id = "portrait-frame" alt="Portrait Frame" />
+    <audio id = "rainy-jazz" src="rainy-jazz.m4a" />
+  </div>
+</body>
+</html>
